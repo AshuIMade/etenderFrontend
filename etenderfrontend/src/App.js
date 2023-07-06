@@ -1,8 +1,14 @@
-import Sidebar  from "./components/Sidebar";
-import Feed from "./components/Feed";
-import Rigthbar from "./components/Rigthbar";
+import {BrowserRouter as Router, Routes,Route} from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar  from "./components/Navbar";
+import Main from "./pages/Main";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Vendor from "./pages/Vendor";
+import Tender from "./pages/Tender";
+import Bid from "./pages/Bid";
+import Grade from "./pages/Grade";
+
 import { Box, createTheme, Stack, ThemeProvider } from "@mui/material";
 import { useState } from "react";
 
@@ -18,19 +24,24 @@ function App() {
   });
   return (
     <ThemeProvider theme={darkTheme}>
-      <Box bgcolor={"background.default"} color={"text.primary"}>
-        <Navbar />
-        <Stack direction="row" spacing={2} justifyContent="space-between">
-        <Sidebar setMode={setMode} mode={mode}/>
-          <Feed />
-          <Rigthbar />
-        </Stack>
-        <Footer/>
-      </Box>
+      <Router>
+        <Box bgcolor={"background.default"} color={"text.primary"}>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Main/>} />
+            <Route path="/register" element={<Register/>} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/vendor" element={<Vendor/>} />
+            <Route path="/tender" element={<Tender/>} />
+            <Route path="/bid" element={<Bid/>} />
+            <Route path="/grade" element={<Grade/>} />
+          </Routes>
+        </Box>
+      </Router>      
     </ThemeProvider>
   );
 }
 //<Add />
 //<BlueButton>blue Button<BlueButton/>
-
+//<Footer/>
 export default App;
