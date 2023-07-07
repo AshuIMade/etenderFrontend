@@ -192,6 +192,76 @@ h3 {
   animation: spin 1.2s linear infinite;
 }
 
+.test-about-section-container {
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.test-about-background-image-container {
+  position: absolute;
+  left: -150px;
+  z-index: -2;
+}
+.test-about-section-image-container {
+  flex: 0.9;
+  margin-right: 1rem;
+}
+.test-about-section-image-container img{
+    width:100%;
+
+}
+.test-about-section-text-container {
+  flex: 1;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.test-primary-subheading {
+  font-weight: 700;
+  color: #fe9e0d;
+  font-size: 1.15rem;
+}
+.test-about-buttons-container {
+  margin-top: 2rem;
+  display: flex;
+}
+.test-primary-heading {
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #4c4c4c;
+  /* line-height: 5rem; */
+  max-width: 600px;
+}
+.test-primary-text {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  max-width: 500px;
+  color: #6a6a6a;
+  margin: 1.5rem 0rem;
+}
+
+.test-secondary-button {
+  padding: 1rem 2.5rem;
+  background-color: #fe9e0d;
+  outline: none;
+  border: none;
+  border-radius: 5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.test-secondary-button svg {
+  margin-left: 0.75rem;
+  font-size: 1.5rem;
+}
+.test-secondary-button:hover {
+  background-color: #e48f0f;
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -200,7 +270,6 @@ h3 {
     transform: rotate(360deg);
   }
 }
-
 @media (max-width: 600px) {
   .form {
     width: 90%;

@@ -24,14 +24,8 @@ const Post = () => {
             <MoreVert />
           </IconButton>
         }
-        title="John Doe"
+        title="Tender"
         subheader="September 14, 2022"
-      />
-      <CardMedia
-        component="img"
-        height="20%"
-        image="https://images.pexels.com/photos/4534200/pexels-photo-4534200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        alt="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
@@ -41,12 +35,7 @@ const Post = () => {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <Checkbox
-            icon={<FavoriteBorder />}
-            checkedIcon={<Favorite sx={{ color: "red" }} />}
-          />
-        </IconButton>
+        <button type="submit" className="btn btn-block">Bid</button>
         <IconButton aria-label="share">
           <Share />
         </IconButton>
@@ -54,5 +43,11 @@ const Post = () => {
     </Card>
   );
 };
-
+/**<CardMedia
+        component="img"
+        height="20%"
+        image="https://images.pexels.com/photos/4534200/pexels-photo-4534200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        alt="Paella dish"
+      />
+*/
 export default Post;

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 import {
   Box,
   List,
@@ -19,7 +20,9 @@ import {
   Storefront,
   LockOpen,
   LockClock,
+  Add,
 } from "@mui/icons-material";
+//import Add from '@mui/icons-material/Add';
 //import LockOpenIcon from '@mui/icons-material/LockOpen';
 //import LockClockIcon from '@mui/icons-material/LockClock';
 function Sidebar({mode,setMode}) {
@@ -27,12 +30,14 @@ function Sidebar({mode,setMode}) {
         <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
             <List>
                 <ListItem disablePadding>
-                    <ListItemButton component="a" href="#home">
+                    <Link to='/'>
+                    <ListItemButton component="a" href="/">
                         <ListItemIcon>
                             <Home/>
                         </ListItemIcon>
                         <ListItemText primary="Homepage" />
                     </ListItemButton>
+                    </Link>
                 </ListItem>
                 <ListItem disablePadding>
                     <ListItemButton component="a" href="#simple-list">
@@ -51,36 +56,34 @@ function Sidebar({mode,setMode}) {
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
-                    <ListItemButton component="a" href="#simple-list">
+                    <Link to='/tender'>
+                    <ListItemButton component="a" href="/tender">
                     <ListItemIcon>
-                        <Storefront />
+                        <Add />
                     </ListItemIcon>
-                    <ListItemText primary="Marketplace" />
+                    <ListItemText primary="Add Tender" />
                     </ListItemButton>
+                    </Link>
                 </ListItem>
                 <ListItem disablePadding>
-                    <ListItemButton component="a" href="#simple-list">
+                    <Link to='/bid'>
+                    <ListItemButton component="a" href="/bid">
                     <ListItemIcon>
-                        <Settings />
+                        <Add />
                     </ListItemIcon>
-                    <ListItemText primary="Settings" />
+                    <ListItemText primary="Add Bid" />
                     </ListItemButton>
+                    </Link>
                 </ListItem>
                 <ListItem disablePadding>
-                    <ListItemButton component="a" href="#simple-list">
+                    <Link to='/register'>
+                    <ListItemButton component="a" href="/register">
                     <ListItemIcon>
                         <AccountBox />
                     </ListItemIcon>
                     <ListItemText primary="Profile" />
                     </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton component="a" href="#simple-list">
-                    <ListItemIcon>
-                        <ModeNight />
-                    </ListItemIcon>
-                    <Switch onChange={e=>setMode(mode === "light" ? "dark" : "light")}/>
-                    </ListItemButton>
+                    </Link>
                 </ListItem>
             </List>
         </Box>
