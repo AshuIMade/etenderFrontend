@@ -1,19 +1,19 @@
 import { Box, Stack, Skeleton } from "@mui/material";
 import React, { useState } from "react";
-import Post from "./Post";
-import { getTenders, reset } from '../features/tenders/tenderSlice'
+import BidPost from "./BidPost";
+import { getBids, reset } from '../features/bids/bidSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Spinner from "./Spinner";
 
-const Feed = () => {
+const BidsList = () => {
  
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { tenders,isLoading, isError, message } = useSelector(
-    (state) => state.tenders
+  const { bids,isLoading, isError, message } = useSelector(
+    (state) => state.bids
   )
     
   useEffect(() => {
@@ -21,10 +21,10 @@ const Feed = () => {
       console.log(message)
   }
 
-    if (!tenders) {
+    if (!bids) {
       navigate('/')
     }
-    dispatch(getTenders())
+    dispatch(getBids())
    
      
     return () => {
@@ -51,8 +51,8 @@ const Feed = () => {
       
         <Box flex={4} p={{ xs: 0, md: 2 }}>
         
-          {tenders.map((tender) => (
-            <Post key={tender._id} tender={tender} />
+          {bids.map((bid) => (
+            <BidPost key={bid._id} bid={bid} />
              ))} 
            
         </Box>  
@@ -60,4 +60,4 @@ const Feed = () => {
       </>)
 }
 
-export default Feed;
+export default BidsList;

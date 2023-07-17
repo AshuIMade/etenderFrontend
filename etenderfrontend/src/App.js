@@ -1,5 +1,7 @@
-import {BrowserRouter as Router, Routes,Route} from "react-router-dom";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+//import Footer from "./components/Footer";
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Navbar  from "./components/Navbar";
 import Home from "./pages/Home";
 import Main from "./pages/Main";
@@ -10,21 +12,16 @@ import Tender from "./pages/Tender";
 import Bid from "./pages/Bid";
 import Grade from "./pages/Grade";
 
-import { Box, createTheme, Stack, ThemeProvider } from "@mui/material";
-import { useState } from "react";
+import { Box } from "@mui/material";
+import LogedMain from "./pages/LogedMain";
+import BidsOnTender from "./pages/BidsOnTender";
+import BidReview from "./pages/BidReview";
 
 
 function App() {
   
-  const [mode, setMode] = useState("light");
-
-  const darkTheme = createTheme({
-    palette: {
-      mode: mode,
-    },
-  });
   return (
-    <ThemeProvider theme={darkTheme}>
+    <>
       <Router>
         <Box bgcolor={"background.default"} color={"text.primary"}>
           <Navbar />
@@ -32,18 +29,20 @@ function App() {
             <Route path="/" element={<Home/>} />
             <Route path="/main" element={<Main/>} />
             <Route path="/register" element={<Register/>} />
-            <Route path="/login" element={<Login/>} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/logedmain" element={<LogedMain />} /> 
+            <Route path="/bidsOnTender" element={<BidsOnTender />} />  
             <Route path="/vendor" element={<Vendor/>} />
             <Route path="/tender" element={<Tender/>} />
             <Route path="/bid" element={<Bid/>} />
-            <Route path="/grade" element={<Grade/>} />
-          </Routes>
+            <Route path="/grade" element={<Grade />} />
+            <Route path="/bidReview" element={<BidReview />} />
+            </Routes>
         </Box>
-      </Router>      
-    </ThemeProvider>
+      </Router>
+    <ToastContainer />
+    </>
   );
 }
-//<Add />
-//<BlueButton>blue Button<BlueButton/>
-//<Footer/>
+
 export default App;

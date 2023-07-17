@@ -1,17 +1,14 @@
+import React from "react";
 import {
   Avatar,
-  AvatarGroup,
   Box,
   Divider,
-  ImageList,
-  ImageListItem,
   List,
   ListItem,
   ListItemAvatar,
   ListItemText,
   Typography,
 } from "@mui/material";
-import React from "react";
 
 const Rightbar = () => {
   return (
@@ -37,7 +34,7 @@ const Rightbar = () => {
               >
                 Ali Connors
               </Typography>
-              {" — I'll be in your neighborhood doing errands this…"}
+              {" — I'll be following this tender i have big hopes…"}
             </React.Fragment>
           }
         />
@@ -59,7 +56,7 @@ const Rightbar = () => {
               >
                 to Scott, Alex, Jennifer
               </Typography>
-              {" — Wish I could come, but I'm out of town this…"}
+              {" — I Wish the Tender for the safaricom have more days for sub,ission…"}
             </React.Fragment>
           }
         />
@@ -81,7 +78,7 @@ const Rightbar = () => {
               >
                 Sandra Adams
               </Typography>
-              {' — Do you have Paris recommendations? Have you ever…'}
+              {' — Do you know any attachment making web site? Have you ever…'}
             </React.Fragment>
           }
         />

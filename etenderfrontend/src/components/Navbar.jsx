@@ -1,4 +1,5 @@
 import { Mail, Notifications, Pets,AccountCircle,Explicit } from "@mui/icons-material";
+import { FaSignInAlt, FaSignOutAlt, FaUser } from 'react-icons/fa'
 import {
   AppBar,
   Avatar,
@@ -12,7 +13,9 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import {Link} from "react-router-dom";
+import { Link,useNavigate  } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
+import { logout, reset } from '../features/auth/authSlice'
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -55,7 +58,17 @@ const UserBox = styled(Box)(({ theme }) => ({
 }));
 
 function Navbar() {
-    const [open,setOpen]=useState(false);
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.auth)
+
+  const onLogout = () => {
+    dispatch(logout())
+    dispatch(reset())
+    navigate('/')
+  }
+
     return (
         <AppBar position="sticky">
             <StyledToolbar>
@@ -97,10 +110,17 @@ function Navbar() {
                 vertical: 'top',
                 horizontal: 'right',
                 }}
-            >
-                <MenuItem><Link to='./login'>Account</Link></MenuItem>
-                <MenuItem><Link to='./login'>Login</Link></MenuItem>
-                <MenuItem><Link to='./register'>Sign Up</Link></MenuItem>
+        >
+          {user ? (
+              <MenuItem className='btn' onClick={onLogout}>
+                <FaSignOutAlt /> Logout
+              </MenuItem>
+          ) : (
+              <>
+                <MenuItem><Link to='./login'><FaSignInAlt /> Login</Link></MenuItem>
+                <MenuItem><Link to='./register'><FaUser /> Register</Link></MenuItem>
+              </>
+          )}
             </Menu>
         </AppBar>  
     );

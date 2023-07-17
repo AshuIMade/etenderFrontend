@@ -151,25 +151,51 @@ h3 {
   align-items: center;
   justify-content: center;
 }
-
+.btnn {
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background: #f5f5f5;
+  color: #555;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .btn svg {
   margin-right: 8px;
 }
-
+.btnn svg {
+  margin-right: 8px;
+}
 .btn-reverse {
   background: #fff;
   color: #000;
 }
-
+.btnn-reverse {
+  background: #fff;
+  color: #000;
+}
 .btn-block {
   width: 100%;
   margin-bottom: 20px;
 }
-
+.btnn-block {
+  width: 100%;
+  margin-bottom: 20px;
+}
 .btn:hover {
   transform: scale(0.98);
+  background: #f5f5f5;
 }
-
+.btnn:hover {
+  transform: scale(0.98);
+  background: #f5f5f5;
+}
 .loadingSpinnerContainer {
   position: fixed;
   top: 0;

@@ -7,25 +7,16 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Switch,
 } from "@mui/material";
 import {
   AccountBox,
-  Article,
-  Group,
   Home,
-  ModeNight,
-  Person,
-  Settings,
-  Storefront,
   LockOpen,
   LockClock,
   Add,
 } from "@mui/icons-material";
-//import Add from '@mui/icons-material/Add';
-//import LockOpenIcon from '@mui/icons-material/LockOpen';
-//import LockClockIcon from '@mui/icons-material/LockClock';
-function Sidebar({mode,setMode}) {
+
+function Sidebar({ mode, setMode }) {
     return (
         <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
             <List>
@@ -40,7 +31,7 @@ function Sidebar({mode,setMode}) {
                     </Link>
                 </ListItem>
                 <ListItem disablePadding>
-                    <ListItemButton component="a" href="#simple-list">
+                    <ListItemButton component="a" href="/logedmain">
                     <ListItemIcon>
                         <LockOpen/>
                     </ListItemIcon>
@@ -48,7 +39,7 @@ function Sidebar({mode,setMode}) {
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
-                    <ListItemButton component="a" href="#simple-list">
+                    <ListItemButton component="a" href="/logedmain">
                     <ListItemIcon>
                         <LockClock />
                     </ListItemIcon>
@@ -76,8 +67,8 @@ function Sidebar({mode,setMode}) {
                     </Link>
                 </ListItem>
                 <ListItem disablePadding>
-                    <Link to='/register'>
-                    <ListItemButton component="a" href="/register">
+                    <Link to='/logedmain'>
+                    <ListItemButton component="a" href="/logedmain">
                     <ListItemIcon>
                         <AccountBox />
                     </ListItemIcon>

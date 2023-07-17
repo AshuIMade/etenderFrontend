@@ -1,10 +1,7 @@
 import {
   Avatar,
-  AvatarGroup,
   Box,
   Divider,
-  ImageList,
-  ImageListItem,
   List,
   ListItem,
   ListItemAvatar,
@@ -81,14 +78,14 @@ const RigthbarHome = () => {
               >
                 Sandra Adams
               </Typography>
-              {' — Do you have The address of the Company with tender…'}
+              {' — I Wish the Tender for the safaricom have more days for sub,ission……'}
             </React.Fragment>
           }
         />
       </ListItem>
     </List>
-      </Box>
     </Box>
+  </Box>
   );
 };
 

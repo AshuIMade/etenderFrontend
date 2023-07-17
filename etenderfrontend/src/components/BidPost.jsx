@@ -12,49 +12,44 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
-import { FaSignInAlt } from 'react-icons/fa'
 import React, { useState } from "react";
-import { Link  } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux'
 
 
-const Post = (props) => {
+const BidPost = (props) => {
   
   const [open, setOpen] = useState(false);
   const { user } = useSelector((state) => state.auth)
-
+  console.log(props.bid)
   return (
     <Card sx={{ margin: 5 }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: "skyblue" }} aria-label="recipe">
-            T
+          <Avatar sx={{ bgcolor: "red" }} aria-label="recipe">
+            B
           </Avatar>
         }
         action={
           <IconButton aria-label="settings">
             <MoreVert onClick={(e) =>setOpen(true)} sx={{width:30, height:30}}/>
-          </IconButton>
+          </IconButton>          
         }
-        title={props.tender.title}
-        subheader={new Date(props.tender.issuedDate).toLocaleString('en-US')}
+        title={props.bid.vendorName}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          <h3>{props.tender.vendorName}</h3>
-          <h4>{props.tender.type}</h4>
-          <h4>{props.tender.description}</h4>
-          <h5>Details: <a href={props.tender.attachment}>attachment</a></h5>
-          <h5>date of Expiration: {new Date(props.tender.expDate).toLocaleString('en-US')}</h5>
+          <h4>{props.bid.description}</h4>
+          <h5>Payment reference { props.bid.reference}</h5>
+          <h5>Details: <a href={props.bid.attachment}>attachment</a></h5>
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <Link to='/bid'><button type="submit" className="btnn btnn-block">Bid</button></Link>
         <IconButton aria-label="share">
           <Share />
         </IconButton>
       </CardActions>
-              <Menu
+      <Menu
                 id="demo-positioned-menu"
                 aria-labelledby="demo-positioned-button"
                 open={open}
@@ -67,19 +62,13 @@ const Post = (props) => {
                 vertical: 'top',
                 horizontal: 'right',
                 }}
-        >
-          {user ? (
-              <MenuItem className='btn'>
-                <Link to='/bidsOnTender'>Show Bids</Link> 
-              </MenuItem>
-          ) : (
-              <>
-                <MenuItem><Link to='/login'><FaSignInAlt /> Login</Link></MenuItem>
-              </>
-          )}
-            </Menu>
+        >         
+        <MenuItem className='btn'>
+          <Link to="/bidReview" state={props.bid}>Review Bid</Link>
+        </MenuItem>      
+      </Menu>
     </Card>
   );
 };
 
-export default Post;
+export default BidPost;
